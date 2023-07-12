@@ -1,0 +1,34 @@
+
+.page-table{
+  display: flex;
+  flex-wrap: wrap;
+  .box{
+    margin: 5px;
+    width: 200px;
+    height: 200px;
+    background-color: #0af;
+    .child{
+      width: 100px;
+      height: 100px;
+      background-color: #ff0;
+    }
+  }
+  .box-one{
+    width: 200px;
+    height: 200px;
+    background-color: #00f;
+    // 虽然直接编译为child，使用的时候不会和.box的child冲突
+    .child{
+      width: 200px;
+      height: 100px;
+      background-color: #f00;
+    }
+  }
+}
+
+.modal{
+  background: #0f9;
+  width: 200px;
+  height: 100px;
+  color: #fff;
+}

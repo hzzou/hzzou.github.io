@@ -1,0 +1,40 @@
+{
+  "name": "react-v",
+  "private": true,
+  "version": "0.0.0",
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "build": "tsc && vite build",
+    "preview": "vite preview"
+  },
+  "dependencies": {
+    "@react-spring/three": "^9.7.3",
+    "@react-three/drei": "^9.78.1",
+    "@react-three/fiber": "^8.13.4",
+    "@tweenjs/tween.js": "^21.0.0",
+    "antd": "~5.3.2",
+    "hox": "~2.1.0",
+    "react": "~18.2.0",
+    "react-dom": "~18.2.0",
+    "react-router-dom": "~6.9.0",
+    "superagent": "~8.0.9",
+    "three": "^0.154.0"
+  },
+  "devDependencies": {
+    "@types/node": "~18.15.3",
+    "@types/react": "~18.0.28",
+    "@types/react-dom": "~18.0.11",
+    "@types/three": "^0.152.1",
+    "@typescript-eslint/eslint-plugin": "^5.56.0",
+    "@typescript-eslint/parser": "^5.56.0",
+    "@vitejs/plugin-react-swc": "~3.0.0",
+    "eslint": "^8.36.0",
+    "eslint-plugin-react": "^7.32.2",
+    "eslint-plugin-react-hooks": "^4.6.0",
+    "sass": "^1.59.3",
+    "typescript": "~4.9.3",
+    "vite": "~4.2.0",
+    "vite-plugin-imp": "~2.3.1"
+  }
+}
