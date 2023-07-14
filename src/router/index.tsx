@@ -10,6 +10,7 @@ const App = lazy(() => import("@/App")),
 	Car = lazy(() => import("@/views/car")),
 	Star = lazy(() => import("@/views/star")),
 	Olympic = lazy(() => import("@/views/olympic")),
+	HouseSty = lazy(() => import("@/views/houseSky")),
 	About = lazy(() => import("@/views/about"));
 
 const router = createBrowserRouter([
@@ -48,6 +49,10 @@ const router = createBrowserRouter([
 			{
 				path: "/olympic",
 				element: <Olympic />
+			},
+			{
+				path: "/house",
+				element: <HouseSty />
 			}
 		]
 	}

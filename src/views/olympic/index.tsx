@@ -28,6 +28,7 @@ import {
 
 const Olympic: React.FC = () => {
 	const clock = new Clock(); // 时钟
+	const [torusAngle, setTorusAngle] = useState(0);
 
 	// 大写字母开头为 组件,环境配置
 	const Env = () => {
@@ -276,6 +277,15 @@ const Olympic: React.FC = () => {
 			(snowModel as any).geometry.attributes.position.needsUpdate = true;
 		}
 
+		// 五环动画
+		// console.log(clock.elapsedTime);
+		if(torusAngle < 360){
+			const data = clock.elapsedTime * 0.1;
+			setTorusAngle(data);
+		}else{
+			setTorusAngle(0);
+		}
+
 
 		requestAnimationFrame(custAnimate);
 	};
@@ -314,8 +324,8 @@ const Olympic: React.FC = () => {
 				<ambientLight intensity={1} args={["#cfffff"]} />
 				{/*平行光 castShadow设为true是产生动态阴影 */}
 				<directionalLight
-					intensity={1.5}
-					position={[50, 100, 400]}
+					intensity={1}
+					position={[0, 80, 200]}
 					castShadow
 					shadow-camera-top={70}
 					shadow-camera-bottom={-70}
@@ -334,24 +344,24 @@ const Olympic: React.FC = () => {
 					<Clone object={treeModel[1]} />
 					<Clone object={treeModel[2]} />
 					{/*五环*/}
-					<group>
-						<mesh castShadow position={[-10, 10, 60]}>
+					<group position={[0, 2, 65]} rotation-y={torusAngle}>
+						<mesh castShadow position={[-10, 10, 0]}>
 							<torusGeometry args={[6, 0.4, 10]} />
 							<meshLambertMaterial color={"#0885c2"} side={DoubleSide} />
 						</mesh>
-						<mesh castShadow position={[5, 10, 60]}>
+						<mesh castShadow position={[5, 10, 0]}>
 							<torusGeometry args={[6, 0.4, 10]} />
 							<meshLambertMaterial color={"#000"} side={DoubleSide} />
 						</mesh>
-						<mesh castShadow position={[20, 10, 60]}>
+						<mesh castShadow position={[20, 10, 0]}>
 							<torusGeometry args={[6, 0.4, 10]} />
 							<meshLambertMaterial color={"#ed334e"} side={DoubleSide} />
 						</mesh>
-						<mesh castShadow position={[-2.5, 4, 61]}>
+						<mesh castShadow position={[-2.5, 4, 0.5]}>
 							<torusGeometry args={[6, 0.4, 10]} />
 							<meshLambertMaterial color={"#fbb132"} side={DoubleSide} />
 						</mesh>
-						<mesh castShadow position={[12, 4, 61]}>
+						<mesh castShadow position={[12, 4, 0.5]}>
 							<torusGeometry args={[6, 0.4, 10]} />
 							<meshLambertMaterial color={"#1c8b3c"} side={DoubleSide} />
 						</mesh>
