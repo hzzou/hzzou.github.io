@@ -23,6 +23,9 @@ export default defineConfig({
 			"@": fileURLToPath(new URL("./src", import.meta.url))
 		}
 	},
+	build:{
+
+	},
 	css:{
 		// 配置css-module
 		modules:{

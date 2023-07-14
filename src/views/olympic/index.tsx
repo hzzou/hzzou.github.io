@@ -9,10 +9,6 @@ import {
 	PerspectiveCamera
 } from "@react-three/drei";
 import styles from "./index.module.scss";
-import flagText from "@/assets/oly/flag.png";
-import skyText from "@/assets/oly/sky.jpg";
-import treeText from "@/assets/oly/tree.png";
-import snowText from "@/assets/oly/snow.png";
 import {
 	AdditiveBlending,
 	AnimationClip,
@@ -33,7 +29,7 @@ const Olympic: React.FC = () => {
 	// 大写字母开头为 组件,环境配置
 	const Env = () => {
 		const {scene, camera, clock} = useThree();
-		const sceneBg = useLoader(TextureLoader, skyText); // 整体背景
+		const sceneBg = useLoader(TextureLoader, "/textures/oly/sky.jpg"); // 整体背景
 		scene.background = sceneBg;
 		camera.lookAt(0, 0, 0);
 
@@ -62,7 +58,7 @@ const Olympic: React.FC = () => {
 	// 旗子
 	const flag = useGLTF("/models/flag.glb");
 	// 因为useTexture需要写成组件用在Canvas,所以只能用它useLoader结合TextureLoader
-	const flagTexture = useLoader(TextureLoader, flagText);
+	const flagTexture = useLoader(TextureLoader, "/textures/oly/flag.png");
 	const [flagModel, setFlagModel] = useState({});
 	let flagMixer; // 旗帜动画
 	// 冰墩墩
@@ -73,10 +69,10 @@ const Olympic: React.FC = () => {
 	const [rongModel, setRongModel] = useState({});
 	// 树
 	const tree = useGLTF("/models/tree.gltf");
-	const treeTexture = useLoader(TextureLoader, treeText);
+	const treeTexture = useLoader(TextureLoader, "/textures/oly/tree.png");
 	const [treeModel, setTreeModel] = useState([]);
 	// 雪
-	const snowTexture = useLoader(TextureLoader, snowText);
+	const snowTexture = useLoader(TextureLoader, "/textures/oly/snow.png");
 	const [snowModel, setSnowModel] = useState({});
 
 	// 土地的一系列配置

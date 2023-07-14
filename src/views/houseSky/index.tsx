@@ -3,23 +3,18 @@ import styles from "./index.module.scss";
 import {Canvas, useLoader} from "@react-three/fiber";
 import {CameraControls, OrbitControls, PerspectiveCamera, Box, MeshTransmissionMaterial, MeshDiscardMaterial} from "@react-three/drei";
 import {BackSide, BoxGeometry, DoubleSide, TextureLoader} from "three";
-import topImg from "@/assets/houseImg/top.png";
-import bottomImg from "@/assets/houseImg/bottom.png";
-import leftImg from "@/assets/houseImg/left.png";
-import rightImg from "@/assets/houseImg/right.png";
-import frontImg from "@/assets/houseImg/front.png";
-import backImg from "@/assets/houseImg/back.png";
-import quanImg from "@/assets/houseImg/quan.png";
 
 const HouseSky: React.FC = () => {
 	const boxRef = useRef();
-	const topMap = useLoader(TextureLoader, topImg),
-		bottomMap = useLoader(TextureLoader, bottomImg),
-		leftMap = useLoader(TextureLoader, leftImg),
-		rightMap = useLoader(TextureLoader, rightImg),
-		frontMap = useLoader(TextureLoader, frontImg),
-		backMap = useLoader(TextureLoader, backImg),
-		quanMap = useLoader(TextureLoader, quanImg);
+	// 相对位置需要使用import转换一次才能给它用
+	// 绝对位置, 在public文件夹下
+	const topMap = useLoader(TextureLoader, "/textures/houseImg/top.png"),
+		bottomMap = useLoader(TextureLoader, "/textures/houseImg/bottom.png"),
+		leftMap = useLoader(TextureLoader, "/textures/houseImg/left.png"),
+		rightMap = useLoader(TextureLoader, "/textures/houseImg/right.png"),
+		frontMap = useLoader(TextureLoader, "/textures/houseImg/front.png"),
+		backMap = useLoader(TextureLoader, "/textures/houseImg/back.png"),
+		quanMap = useLoader(TextureLoader, "/textures/houseImg/quan.png");
 
 
 
@@ -31,6 +26,11 @@ const HouseSky: React.FC = () => {
 		}, [boxRef.current]);
 
 		return null;
+	};
+
+	//
+	const handleClick = (d) => {
+		console.log(d);
 	};
 
 
@@ -59,7 +59,7 @@ const HouseSky: React.FC = () => {
 				{/*<directionalLight intensity={1} position={[0, 0, 200]} />*/}
 				{/*材料渲染的side设为BackSide再配合z轴的缩放，即可在内部*/}
 				{/*球体实现*/}
-				<mesh scale={[2, 2, -2]} position={[0, 0, 0]}>
+				<mesh onClick={handleClick} scale={[2, 2, -2]} position={[0, 0, 0]}>
 					<sphereGeometry ref={boxRef} args={[3]} />
 					<meshStandardMaterial side={BackSide} toneMapped={false} map={quanMap} attach={"material"} />
 					<BoxConfig />
