@@ -1,16 +1,14 @@
-import React from "react";
+import React, {useEffect, useRef, useState} from "react";
 import styles from "./index.module.scss";
 import {Canvas, useLoader} from "@react-three/fiber";
 import {OrbitControls, OrthographicCamera, PerspectiveCamera} from "@react-three/drei";
 import {
-	BufferGeometry,
+	BufferGeometry, CanvasTexture, DoubleSide,
 	FileLoader, Line,
-	LineBasicMaterial,
-	Shape, Vector3
+	LineBasicMaterial, Mesh, MeshPhongMaterial, PlaneGeometry,
+	Shape, Sprite, SpriteMaterial, Texture, Vector3
 } from "three";
 import {geoMercator} from "d3-geo";
-import {TextGeometry} from "three/examples/jsm/geometries/TextGeometry";
-import {and} from "three/examples/jsm/nodes/shadernode/ShaderNodeBaseElements";
 
 
 const ChinaMap:React.FC = () => {
@@ -20,33 +18,51 @@ const ChinaMap:React.FC = () => {
 			.translate([0, 0]), // 移动地图位置
 		shapeData = useLoader(FileLoader, "/china.json"),
 		features = JSON.parse(shapeData as any).features;
+	const [provinceName, setProvince] = useState(""),
+		[pos, setPos] = useState({x:0, y:0});
 
 	// 地图组件
 	const Map = ({features}: any) => {
-		// 创建文字图片作为纹理
-		const createTexture = (textArr) => {
+		// 创建文字图片作为纹理(目前纹理有bug)
+		const createTexture = (text) => {
 			const canvas = document.createElement("canvas"),
-				ctx = canvas.getContext("2d");
-			canvas.width = window.innerWidth;
-			canvas.height =window.innerHeight;
+				ctx = canvas.getContext("2d"),
+				width = text.split("") * 20,
+				height = 40;
+
+			canvas.width = width;
+			canvas.height = height;
+
+			ctx.fillStyle = "rgba(0, 0, 0, 0)";
+			ctx.fillRect(0, 0, width, height);
+			ctx.translate(width/2, height/2);
 
 			ctx.font = "20px SimSun, Songti SC";
 			ctx.fillStyle = "#333"; // 文字颜色
 			ctx.textAlign = "center";
 			ctx.textBaseline = "middle";
 
-			textArr.map(ele => ctx.fillText(ele.name, ele.position[0], ele.position[1]));
+			ctx.fillText(text, 0, 0);
 
-			return ctx.getImageData(0, 0, canvas.width, canvas.height);
+			return canvas;
 		};
-		const nameArr = [];
-		const result = features.map((ele) => {
-			if(ele.properties.center){
+
+		//
+		const handleShow = (data) => {
+			setProvince(data.object.name);
+			setPos({x: data.offsetX, y: data.offsetY});
+		};
+
+		return features.map((ele) => {
+			const haveName = ele.properties.center != void 0;
+			let nameObj = null;
+
+			if(haveName){
 				const [x, y] = geoChange(ele.properties.center);
-				nameArr.push({
+				nameObj = {
 					name: ele.properties.name,
 					position: [x, -y]
-				});
+				};
 			}
 
 			let coordinates;
@@ -78,12 +94,10 @@ const ChinaMap:React.FC = () => {
 					lineMaterial = new LineBasicMaterial({color: "#fff"}),
 					line = new Line(lineGeo, lineMaterial);
 
-
 				return(
 					<group position={[0, 0, 0]} key={mulIdx}>
 						<primitive object={line} />
-
-						<mesh>
+						<mesh userData={haveName && {center: nameObj}} name={ele.properties.name} onPointerMove={handleShow}>
 							{/*挤压形成对应shape的三维边界*/}
 							<extrudeGeometry args={[shape, {depth: -0.1, bevelEnabled:false}]} />
 							{/*两个材料重叠形成不同颜色轮廓, 需要attach材料序号*/}
@@ -94,25 +108,15 @@ const ChinaMap:React.FC = () => {
 				);
 			});
 		});
-		console.log(nameArr);
 
-		const texture = createTexture(nameArr);
-		// console.log(texture);
-		// for(let i = 3; i < 100; i+=4){
-		// 	// console.log(texture.data[i]);
-		// 	texture.data[i] = 0;
-		// }
 
-		return (
-			<>
-				{result}
-			</>
-		);
+
 	};
 
 
 	return (
 		<div id={styles.map}>
+			<div id={styles.tooltip} style={{left: pos.x, top: pos.y}}>{provinceName}</div>
 			<Canvas>
 				<PerspectiveCamera
 					fov={60} near={10} far={100}

@@ -3,9 +3,10 @@
   width: 100%;
   height: 100%;
   position: relative;
-  #name{
+  #tooltip{
     position: absolute;
-    width: 100%;
-    height: 100%;
+    z-index: 10;
+    color: #f9f9f9;
+    font-size: 20px;
   }
 }
