@@ -10,3 +10,4 @@
 
 ### 静态部署配置
 * 因为gitpages的静态部署文件夹是某分支(比如master分支)下不是root文件夹就是docs文件夹，所以得把打包目录名称改为docs
+* 部署到github Pages时，base配置为仓库名字
