@@ -24,7 +24,8 @@ export default defineConfig({
 		}
 	},
 	build:{
-
+		outDir: "docs",
+		emptyOutDir: true
 	},
 	css:{
 		// 配置css-module
