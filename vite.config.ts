@@ -1,6 +1,7 @@
 import { fileURLToPath, URL} from "node:url";
 import { defineConfig } from "vite";
-import react from "@vitejs/plugin-react-swc";
+// import react from "@vitejs/plugin-react-swc";
+import react from "@vitejs/plugin-react";
 // antd的cssinjs自带自动导入
 // import vitePluginImp from "vite-plugin-imp";
 
