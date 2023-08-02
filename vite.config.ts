@@ -23,7 +23,7 @@ export default defineConfig({
 			"@": fileURLToPath(new URL("./src", import.meta.url))
 		}
 	},
-	base: "/react-three-fiber-demo/docs/",
+	base: "/",
 	build:{
 		outDir: "docs",
 		emptyOutDir: true,
