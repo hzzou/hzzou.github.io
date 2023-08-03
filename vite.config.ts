@@ -33,7 +33,7 @@ export default defineConfig((env) => {
 				"@": fileURLToPath(new URL("./src", import.meta.url))
 			}
 		},
-		base: env.mode === "development" ? "/" : VITE_BASE_URL,
+		base: VITE_BASE_URL,
 		build:{
 			outDir: "docs",
 			emptyOutDir: true,
