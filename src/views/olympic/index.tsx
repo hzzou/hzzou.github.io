@@ -25,7 +25,6 @@ import {
 const Olympic: React.FC = () => {
 	const clock = new Clock(); // 时钟
 	const [torusAngle, setTorusAngle] = useState(0);
-	const { VITE_BASE_URL } = import.meta.env;
 
 	// 大写字母开头为 组件,环境配置
 	const Env = () => {
@@ -54,26 +53,26 @@ const Olympic: React.FC = () => {
 	};
 
 	// 土地
-	const land = useGLTF(VITE_BASE_URL+"models/land.glb");
+	const land = useGLTF("/models/land.glb");
 	const [landModel, setLandModel] = useState({});
 	// 旗子
-	const flag = useGLTF(VITE_BASE_URL+"models/flag.glb");
+	const flag = useGLTF("/models/flag.glb");
 	// 因为useTexture需要写成组件用在Canvas,所以只能用它useLoader结合TextureLoader
-	const flagTexture = useLoader(TextureLoader, VITE_BASE_URL+"textures/oly/flag.png");
+	const flagTexture = useLoader(TextureLoader, "/textures/oly/flag.png");
 	const [flagModel, setFlagModel] = useState({});
 	let flagMixer; // 旗帜动画
 	// 冰墩墩
-	const snowKid = useGLTF(VITE_BASE_URL+"models/bingdwendwen.glb");
+	const snowKid = useGLTF("/models/bingdwendwen.glb");
 	const [kidModel, setKidModel] = useState({});
 	// 雪绒绒
-	const snowRong = useGLTF(VITE_BASE_URL+"models/xuerongrong.glb");
+	const snowRong = useGLTF("/models/xuerongrong.glb");
 	const [rongModel, setRongModel] = useState({});
 	// 树
-	const tree = useGLTF(VITE_BASE_URL+"models/tree.gltf");
-	const treeTexture = useLoader(TextureLoader, VITE_BASE_URL+"textures/oly/tree.png");
+	const tree = useGLTF("/models/tree.gltf");
+	const treeTexture = useLoader(TextureLoader, "/textures/oly/tree.png");
 	const [treeModel, setTreeModel] = useState([]);
 	// 雪
-	const snowTexture = useLoader(TextureLoader, VITE_BASE_URL+"textures/oly/snow.png");
+	const snowTexture = useLoader(TextureLoader, "/textures/oly/snow.png");
 	const [snowModel, setSnowModel] = useState({});
 
 	// 土地的一系列配置

@@ -10,8 +10,7 @@
 
 ### 静态部署配置
 
-* 特殊部署法：需要建立仓库名为username.github.io (第一段必须是用户名，否则会虽然会获取到资源，页面仍旧404)
-* 一般部署法：仓库名任意，但是涉及到打包base和加载静态文件的路径base都要配置来和仓库名一致
+* 需要建立仓库名为username.github.io (第一段必须是用户名，否则会虽然会获取到资源，页面仍旧404)
 * vite获取环境变量还需要vite中自带loadEnv支持，defineConfig由对象变为函数
 * Failed to load module script,是文件路径不对
 * 因为gitpages的静态部署文件夹是某分支(比如master分支)下不是root文件夹就是docs文件夹，所以得把打包目录名称改为docs

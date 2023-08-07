@@ -4,7 +4,7 @@ import React, {lazy} from "react";
 
 // 获取环境变量配置
 // console.log(import.meta.env);
-const { VITE_BASE_URL } = import.meta.env;
+// const { VITE_BASE_URL } = import.meta.env;
 
 // lazy需要在路由上加上Suspense
 const App = lazy(() => import("@/App")),
