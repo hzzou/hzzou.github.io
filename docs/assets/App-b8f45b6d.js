@@ -1,1 +1,0 @@
-import{u as o,a as e,b as r,r as i,j as a,O as n}from"./index-cc8122ae.js";import{H as p}from"./hox-root-a95c0023.js";const m=()=>{const t=o(),s=e();return r(),i.useEffect(()=>{s.pathname==="/"&&t("/olympic")},[]),a.jsx(p,{children:a.jsx(n,{})})};export{m as default};
