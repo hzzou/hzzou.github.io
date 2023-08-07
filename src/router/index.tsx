@@ -65,6 +65,6 @@ const router = createBrowserRouter([
 			}
 		]
 	}
-], {basename: VITE_BASE_URL});
+]);
 
 export default router;
