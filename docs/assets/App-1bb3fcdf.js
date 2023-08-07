@@ -1,1 +1,0 @@
-import{u as o,a as e,b as r,r as n,j as a,O as i}from"./index-e06a85e6.js";import{H as u}from"./hox-root-e0376ae1.js";const x=()=>{const t=o(),s=e();return r(),n.useEffect(()=>{s.pathname==="/"&&t("/china")},[]),a.jsx(u,{children:a.jsx(i,{})})};export{x as default};
