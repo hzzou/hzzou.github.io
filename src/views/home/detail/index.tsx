@@ -4,9 +4,9 @@ import {Button} from "antd";
 import {useGlobalStore} from "@/reducer/globalStore";
 const HomeDetail: React.FC = () => {
 	const nav = useNavigate();
-	console.log("ue:", useGlobalStore());
+	// console.log("ue:", useGlobalStore());
 	const {countState, countDispatch} = useGlobalStore();
-	console.log("c:", countState);
+	// console.log("c:", countState);
 	const back = () => {
 		nav("/home");
 	};

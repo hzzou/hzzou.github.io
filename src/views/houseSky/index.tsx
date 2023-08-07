@@ -22,7 +22,7 @@ const HouseSky: React.FC = () => {
 	// 放在Canvas里才能拿到boxRef
 	const BoxConfig = () => {
 		useEffect(() => {
-			console.log(boxRef.current);
+			// console.log(boxRef.current);
 		}, [boxRef.current]);
 
 		return null;
@@ -30,7 +30,7 @@ const HouseSky: React.FC = () => {
 
 	//
 	const handleClick = (d) => {
-		console.log(d);
+		// console.log(d);
 	};
 
 

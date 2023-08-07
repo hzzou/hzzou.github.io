@@ -11,8 +11,8 @@ const Dialog:React.FC<inProps> = (props: inProps) =>{
 	const {dialogValue, setDialog} = props;
 	const m = useMemo(() => dialogValue+2, [dialogValue]);
 
-	console.log("s:",dialogValue);
-	console.log("set:",setDialog);
+	// console.log("s:",dialogValue);
+	// console.log("set:",setDialog);
 	const hands = (a, b) => {
 		return a+"_"+b;
 	};
@@ -21,7 +21,7 @@ const Dialog:React.FC<inProps> = (props: inProps) =>{
 		return hands(dialogValue, m);
 	}, [dialogValue, m]);
 
-	console.log(d());
+	// console.log(d());
 
 	const handleV = () => {
 		setDialog("129");

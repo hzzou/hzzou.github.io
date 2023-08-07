@@ -11,7 +11,7 @@ export interface countAction{
 }
 
 export const countReducer = (state: countState, action: countAction) => {
-	console.log("action:", action);
+	// console.log("action:", action);
 	switch (action.type) {
 	case "ADD":
 		return {

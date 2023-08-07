@@ -9,7 +9,7 @@ import Map from "./map";
 import emitter from "@/utils/eventBus";
 
 
-console.log(import.meta);
+// console.log(import.meta);
 const ChinaMap:React.FC = () => {
 	const shapeData = useLoader(FileLoader, "/china.json"),
 		features = JSON.parse(shapeData as any).features;

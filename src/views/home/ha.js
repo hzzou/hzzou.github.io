@@ -1,6 +1,6 @@
 
 export const cal= function(a){
-	console.log(this);
+	// console.log(this);
 	// let add;
 	// add = function(b){
 	// 	let div;

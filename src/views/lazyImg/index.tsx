@@ -13,8 +13,8 @@ const LazyImg: React.FC = () => {
 	}
 	const loading = imgList.filter(ele => ele.includes("loading"))[0];
 	imgList = imgList.filter(ele => !ele.includes("loading"));
-	console.log(loading);
-	console.log(imgList);
+	// console.log(loading);
+	// console.log(imgList);
 	// 大写开头表示组件
 	const Child = (item) => {
 		const itemRef = useRef<HTMLDivElement>(),

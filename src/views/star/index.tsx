@@ -49,7 +49,7 @@ const Star: React.FC = () => {
 
 	//
 	const handleClick = (event) => {
-		console.log("ev:", event);
+		// console.log("ev:", event);
 	};
 
 

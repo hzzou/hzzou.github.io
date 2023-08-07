@@ -6,7 +6,7 @@ const useObserver = (domRef: any) =>{
 
 	const interObserver = useMemo(() => {
 		return new IntersectionObserver((entries, observer) => {
-			console.log("entires:",entries);
+			// console.log("entires:",entries);
 			entries.map((item) => {
 				if(item.isIntersecting){
 					setTimeout(() => {

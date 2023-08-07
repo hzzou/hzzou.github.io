@@ -5,9 +5,9 @@ interface inProps{
 }
 
 const custInput = forwardRef<HTMLInputElement, inProps>((props:inProps, ref) =>{
-	console.log("cust页面");
-	console.log("props:", props);
-	console.log("ref:", ref);
+	// console.log("cust页面");
+	// console.log("props:", props);
+	// console.log("ref:", ref);
 	return(
 		<div className="custInput">
 			<input type="text" ref={ref} />

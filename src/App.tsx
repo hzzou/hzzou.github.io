@@ -7,7 +7,7 @@ const  App: React.FC = () =>     {
 		location = useLocation(),
 		loaderData = useLoaderData();
 
-	console.log("loaderData:",loaderData);
+	// console.log("loaderData:",loaderData);
 	// 依赖空数组，由于依赖为空，不会变化，只执行一次
 	useEffect(() => {
 		if(location.pathname === "/"){

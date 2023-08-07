@@ -4,11 +4,11 @@ const About:React.FC = () => {
 	const list = [1, 2, 3, 4, 5],
 		divList = useRef(null);
 
-	console.log("divList:",divList);
+	// console.log("divList:",divList);
 	const getRef = (dom: Element | null) => {
 		if(!dom) return;
 
-		console.log("dom:",dom);
+		// console.log("dom:",dom);
 	};
 
 	return(

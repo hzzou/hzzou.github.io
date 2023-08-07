@@ -10,11 +10,7 @@ import react from "@vitejs/plugin-react-swc";
 export default defineConfig((env) => {
 	// 模式，路径(__dirname或process.cwd()), 变量前缀
 	const {VITE_BASE_URL} = loadEnv(env.mode, __dirname, "VITE"); // 加载环境变量文件
-	// console.log(__filename);
-	// console.log(__dirname);
-	// console.log(process.cwd());
-	// console.log(import.meta);
-	// console.log(config);
+
 	return {
 		plugins: [
 			react(),

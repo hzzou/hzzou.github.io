@@ -10,6 +10,7 @@
 
 ### 静态部署配置
 
+* 需要建立仓库名为username.two.three (第一段必须是用户名，否则会虽然会获取到资源，页面仍旧404)
 * vite获取环境变量还需要vite中自带loadEnv支持，defineConfig由对象变为函数
 * Failed to load module script,是文件路径不对
 * 因为gitpages的静态部署文件夹是某分支(比如master分支)下不是root文件夹就是docs文件夹，所以得把打包目录名称改为docs

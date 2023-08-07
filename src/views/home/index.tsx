@@ -49,7 +49,7 @@ const Home:React.FC = () => {
 				j.push(t[i]);
 				n[t[i]] = 1;
 			} else{
-				console.log(n[t[i]]);
+				// console.log(n[t[i]]);
 				n[t[i]] += 1;
 			}
 		}
@@ -62,11 +62,11 @@ const Home:React.FC = () => {
 			}
 		});
 
-		console.log("result:",result);
+		// console.log("result:",result);
 	};
 
 	useEffect(() => {
-		console.log(cal(1));
+		// console.log(cal(1));
 		// found("abcd", "aebcd");
 		// found("aaaa", "aabaa");
 		// found("abbdd", "adabdb");
@@ -87,7 +87,7 @@ const Home:React.FC = () => {
 
 	// a更新的时候执行
 	useEffect(() => {
-		console.log("home:",a);
+		// console.log("home:",a);
 		inputRef.current.value = a;
 	}, [a]);
 
@@ -105,7 +105,7 @@ const Home:React.FC = () => {
 
 	const handleCount = () => {
 		countRef.current = countRef.current+1;
-		console.log("countRef:", countRef);
+		// console.log("countRef:", countRef);
 	};
 
 	const handleTime = () => {
@@ -132,10 +132,10 @@ const Home:React.FC = () => {
 		}
 	});
 
-	console.log("arr_1:",arr_1);
+	// console.log("arr_1:",arr_1);
 	arr_p[1] = 5;
-	console.log("arr_p", arr_p);
-	console.log("arr_1", arr_1);
+	// console.log("arr_p", arr_p);
+	// console.log("arr_1", arr_1);
 
 	function getNum<T, R extends keyof T>(obj: T, key: R){
 		return obj[key];
@@ -146,8 +146,8 @@ const Home:React.FC = () => {
 	}
 	const n = getNum(person, "name"); // 类型推论，常规开发中都是这样
 	const age = getNum<im, string>(person, "age"); // 明确传入
-	console.log("n:", n);
-	console.log("age:", age);
+	// console.log("n:", n);
+	// console.log("age:", age);
 
 
 

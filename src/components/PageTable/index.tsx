@@ -11,7 +11,7 @@ interface inProps{
 }
 
 const PageTable: React.FC<inProps> = (props: inProps) => {
-	console.log("pageTable:",props);
+	// console.log("pageTable:",props);
 	const {a, setA} = useContext(HomeContext),
 		[isOpen, setOpen] = useState(false);
 

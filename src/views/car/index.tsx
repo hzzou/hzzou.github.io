@@ -97,7 +97,7 @@ const Car:React.FC = () => {
 
 		gltfLoader.load("/models/ferrari.glb", (gltf) => {
 			const carModel = gltf.scene;
-			console.log(carModel);
+			// console.log(carModel);
 			scene.add(carModel);
 
 			const body: any = carModel.getObjectByName("body"); // 在main内
