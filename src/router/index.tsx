@@ -16,6 +16,7 @@ const App = lazy(() => import("@/App")),
 	Olympic = lazy(() => import("@/views/olympic")),
 	HouseSty = lazy(() => import("@/views/houseSky")),
 	ChinaMap = lazy(() => import("@/views/chinaMap")),
+	MagicCube = lazy(() => import("@/views/magicCube")),
 	About = lazy(() => import("@/views/about"));
 
 const router = createBrowserRouter([
@@ -62,6 +63,10 @@ const router = createBrowserRouter([
 			{
 				path: "/china",
 				element: <ChinaMap />
+			},
+			{
+				path: "/cube",
+				element: <MagicCube />
 			}
 		]
 	}

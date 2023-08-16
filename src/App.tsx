@@ -12,7 +12,7 @@ const  App: React.FC = () =>     {
 	useEffect(() => {
 		if(location.pathname === "/"){
 			// console.log("locate:",location.pathname);
-			nav("/olympic");
+			nav("/cube");
 		}
 	}, []);
 	return(
