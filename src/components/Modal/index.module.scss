@@ -1,0 +1,15 @@
+
+.modal{
+  position: absolute;
+  left: 50%; top: 50%;
+  transform: translate(-50%, -50%);
+  display: flex;
+  flex-direction: column;
+  border: 1px solid #000;
+  .header, .footer{
+    flex: 0 0 50px;
+  }
+  .article{
+    flex: 1 1 auto;
+  }
+}

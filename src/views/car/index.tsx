@@ -18,11 +18,11 @@ import Stats from "three/examples/jsm/libs/stats.module";
 const Car:React.FC = () => {
 	let scene, camera, renderer, controls, stats, grid, wheels = [];
 
+	// 初始化基本场景
 	const init = () => {
 		scene = new Scene();
 		scene.background = new Color("#333");
 		scene.fog = new Fog("#333", 10, 50); // 模糊
-
 
 		grid = new GridHelper(20, 40, "", "");
 		grid.material.opacity = 0.2;
@@ -40,27 +40,21 @@ const Car:React.FC = () => {
 		// 要加光源，添加的材料才会显示
 		// 点光源
 		const point = new PointLight("#fff");
-		point.position.set(400, 200, 300);
+		point.position.set(200, 100, 100);
 		scene.add(point);
 		// 环境光---阳光普照，自然光
-		const ambient = new AmbientLight("#444");
+		const ambient = new AmbientLight("#999");
 		scene.add(ambient);
-
-		const carEle = document.querySelector("#car");
-		carEle && carEle.appendChild(renderer.domElement);
 
 		controls = new OrbitControls(camera, renderer.domElement);
 		controls.maxDistance = 10;
 		controls.target.set(0, 0.5, 0);
 
+		const carEle = document.querySelector("#car");
+		carEle.appendChild(renderer.domElement);
+
 		stats = new Stats();
 		carEle && carEle.appendChild(stats.dom);
-
-		// 等待添加模型
-		// addDemo();
-
-		// addCar();
-		//loopRender();
 	};
 
 	const loopRender = () => {
@@ -97,9 +91,8 @@ const Car:React.FC = () => {
 
 		gltfLoader.load("/models/ferrari.glb", (gltf) => {
 			const carModel = gltf.scene;
-			// console.log(carModel);
-			scene.add(carModel);
 
+			carModel.scale.set(1.5, 1.5, 1.5);
 			const body: any = carModel.getObjectByName("body"); // 在main内
 			body.material = new MeshPhysicalMaterial({
 				color: 0xff0000,
@@ -137,8 +130,7 @@ const Car:React.FC = () => {
 				carModel.getObjectByName("wheel_rr"),
 			);
 
-
-			// scene.add(carModel);
+			scene.add(carModel);
 		});
 	};
 
@@ -157,21 +149,26 @@ const Car:React.FC = () => {
 	useEffect(() => {
 		init();
 
+		// 等待添加模型
+		// addDemo();
+
+		addCar();
+		loopRender();
+
 		// 监控窗口变化
 		window.addEventListener("resize", handleResize);
 
 		return () => {
+			// 组件销毁时清空元素
+			const carEle = document.querySelector("#car");
+			carEle.innerHTML = "";
 			window.removeEventListener("resize", handleResize);
 		};
 	}, []);
 
-	useEffect(()=>{
-		loopRender();
-	}, [window.innerWidth]);
-
 
 	return(
-		<div id="car"></div>
+		<div className={styles.car} id={"car"}></div>
 	);
 };
 

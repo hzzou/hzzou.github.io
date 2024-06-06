@@ -3,7 +3,7 @@ import React, {useContext} from "react";
 import {HomeContext} from "@/views/home";
 
 const Child: React.FC = () => {
-	// console.log(useContext(HomeContext));
+	console.log(useContext(HomeContext));
 	const {countState, countDispatch} = useContext(HomeContext);
 
 	const handleAdd = () => {

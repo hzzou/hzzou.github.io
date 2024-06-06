@@ -12,8 +12,12 @@ const  App: React.FC = () =>     {
 	useEffect(() => {
 		if(location.pathname === "/"){
 			// console.log("locate:",location.pathname);
-			nav("/cube");
+			nav("/calendar");
 		}
+    else{
+      console.log("locate:",location.pathname);
+      nav(location.pathname);
+    }
 	}, []);
 	return(
 		<HoxRoot>

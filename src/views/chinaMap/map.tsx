@@ -45,7 +45,7 @@ const Map = forwardRef((props: mapInter, ref:ForwardedRef<Group>) => {
 	// html方式显示名称
 	const handleShow = (data) => {
 		data.object.material[0].color = new Color("#ff0"); // 需转换
-		emitter.emit("handleShow", data);
+		emitter.emit("handleShow", data); // 发射事件
 	};
 
 	const handleCancel = (data) => {

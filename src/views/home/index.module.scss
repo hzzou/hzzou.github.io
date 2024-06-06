@@ -6,11 +6,26 @@
     height: 100px;
     width: 200px;
   }
+
+  .btn.ant-btn-primary{
+    color: #000 !important;
+    border-color: #1677ff !important;
+  }
+
+  .wrap{
+    width: 200px;
+    height: 200px;
+    border: 1px solid #000;
+    display: grid;
+    place-items: center;
+  }
 }
 
-.modal{
-  width: 200px;
-  height: 100px;
-  background-color: #f90;
-  color: #fff;
-}
+//.modal{
+//  width: 200px;
+//  height: 100px;
+//  background-color: #f90;
+//  color: #fff;
+//}
+
+

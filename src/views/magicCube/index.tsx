@@ -4,10 +4,13 @@ import styles from "./index.module.scss";
 import {PerspectiveCamera, OrbitControls} from "@react-three/drei";
 import {AudioContext, DoubleSide, CanvasTexture, Group, Vector3} from "three";
 
+
 const MagicCube: React.FC = () => {
 	const controlRef = useRef(null),
 		cubeRef = useRef(null);
 	let startPoint =  null, directVector = null;
+
+
 	// 创建canvas画布map
 	const canvasMap = (color, size) => {
 		const canvas = document.createElement("canvas"),

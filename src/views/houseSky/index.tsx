@@ -2,7 +2,7 @@ import React, {useEffect, useRef} from "react";
 import styles from "./index.module.scss";
 import {Canvas, useLoader} from "@react-three/fiber";
 import {CameraControls, OrbitControls, PerspectiveCamera, Box, MeshTransmissionMaterial, MeshDiscardMaterial} from "@react-three/drei";
-import {BackSide, BoxGeometry, DoubleSide, TextureLoader} from "three";
+import {BackSide, BoxGeometry, DoubleSide, TextureLoader, FrontSide} from "three";
 
 const HouseSky: React.FC = () => {
 	const boxRef = useRef();
@@ -59,13 +59,13 @@ const HouseSky: React.FC = () => {
 				{/*<directionalLight intensity={1} position={[0, 0, 200]} />*/}
 				{/*材料渲染的side设为BackSide再配合z轴的缩放，即可在内部*/}
 				{/*球体实现*/}
-				<mesh onClick={handleClick} scale={[2, 2, -2]} position={[0, 0, 0]}>
+				{/*<mesh onClick={handleClick} scale={[2, 2, 2]} position={[0, 0, 0]}>
 					<sphereGeometry ref={boxRef} args={[3]} />
 					<meshStandardMaterial side={BackSide} toneMapped={false} map={quanMap} attach={"material"} />
 					<BoxConfig />
-				</mesh>
+				</mesh>*/}
 				{/*正方体实现*/}
-				{/*<mesh scale={[2, 2, 2]} position={[0, 0, 0]}>
+				<mesh scale={[2, 2, 2]} position={[0, 0, 0]}>
 					<boxGeometry ref={boxRef} args={[5, 5, 5]} />
 					<meshStandardMaterial side={BackSide} toneMapped={false} map={leftMap} attach={"material-1"} />
 					<meshStandardMaterial side={BackSide} toneMapped={false} map={rightMap} attach={"material-0"} />
@@ -73,7 +73,7 @@ const HouseSky: React.FC = () => {
 					<meshStandardMaterial side={BackSide} toneMapped={false} map={bottomMap} attach={"material-3"}  />
 					<meshStandardMaterial side={BackSide} toneMapped={false} map={frontMap} attach={"material-5"} />
 					<meshStandardMaterial side={BackSide} toneMapped={false} map={backMap} attach={"material-4"} />
-				</mesh>*/}
+				</mesh>
 			</Canvas>
 		</div>
 	);

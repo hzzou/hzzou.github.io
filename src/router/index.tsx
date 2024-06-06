@@ -2,6 +2,7 @@ import {createBrowserRouter} from "react-router-dom";
 import React, {lazy} from "react";
 
 
+
 // 获取环境变量配置
 // console.log(import.meta.env);
 // const { VITE_BASE_URL } = import.meta.env;
@@ -17,7 +18,11 @@ const App = lazy(() => import("@/App")),
 	HouseSty = lazy(() => import("@/views/houseSky")),
 	ChinaMap = lazy(() => import("@/views/chinaMap")),
 	MagicCube = lazy(() => import("@/views/magicCube")),
-	About = lazy(() => import("@/views/about"));
+	About = lazy(() => import("@/views/about")),
+  CustForm = lazy(()=>import("@/views/form")),
+  Live = lazy(()=>import("@/views/live")),
+	CustIframe = lazy(()=>import("@/views/iframe")),
+  CustCalendar = lazy(()=>import("@/views/calendar"));
 
 const router = createBrowserRouter([
 	{
@@ -67,7 +72,23 @@ const router = createBrowserRouter([
 			{
 				path: "/cube",
 				element: <MagicCube />
-			}
+			},
+      {
+        path: "/custForm",
+        element: <CustForm />
+      },
+      {
+        path: "/live",
+        element: <Live />
+      },
+      {
+        path: "/iframe",
+        element: <CustIframe />
+      },
+      {
+        path: "/calendar",
+        element: <CustCalendar />
+      }
 		]
 	}
 ]);

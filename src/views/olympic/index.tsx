@@ -21,11 +21,21 @@ import {
 	TextureLoader, Vector3,
 	BufferGeometry, BufferAttribute, Points
 } from "three";
+import {useMount, useUnmount} from "react-use";
 
 const Olympic: React.FC = () => {
 	const clock = new Clock(); // 时钟
 	const [torusAngle, setTorusAngle] = useState(0);
 
+	useMount(()=>{
+		console.log("组件挂载");
+		console.log(performance.now());
+	});
+
+	useUnmount(()=>{
+		console.log("组件卸载");
+		console.log(performance.now());
+	});
 	// 大写字母开头为 组件,环境配置
 	const Env = () => {
 		const {scene, camera, clock} = useThree();
@@ -288,16 +298,29 @@ const Olympic: React.FC = () => {
 
 
 	useEffect(()=>{
+		console.log("组件挂载");
+		console.log(performance.now());
 		configLand();
 		configTree();
 		configFlag();
 		configKid();
 		configRong();
 		configSnow();
+
+		return ()=>{
+			console.log("组件卸载1");
+			console.log(performance.now());
+		};
 	},[]);
 
 	useEffect(() => {
 		custAnimate();
+
+		return ()=>{
+			// 此处不是组件卸载,因为第二个参数不为[]
+			console.log("不是组件卸载");
+			console.log(performance.now());
+		};
 	}, [flagModel, kidModel, rongModel, treeModel, snowModel]);
 
 	return(
@@ -308,7 +331,7 @@ const Olympic: React.FC = () => {
 					aspect={window.innerWidth/window.innerHeight}
 					position={[0, 0, 200]} />
 				{/*控制 AzimuthAngle 水平角度 PolarAngle(正北方为0) 垂直角度 弧度 */}
-				<OrbitControls  minAzimuthAngle={-Math.PI/12} maxAzimuthAngle={Math.PI/12} minPolarAngle={Math.PI/2} maxPolarAngle={Math.PI/2} maxDistance={110} minDistance={88} />
+				<OrbitControls  minAzimuthAngle={-Math.PI/6} maxAzimuthAngle={Math.PI/6} minPolarAngle={Math.PI/2 * 8/9} maxPolarAngle={Math.PI/2} maxDistance={110} minDistance={88} />
 				{/*设置scene背景色*/}
 				{/*<color attach="background" args={["#dedede"]} />*/}
 				{/*坐标*/}

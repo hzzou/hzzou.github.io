@@ -17,3 +17,19 @@
 * Failed to load module script,是文件路径不对
 * 因为gitpages的静态部署文件夹是某分支(比如master分支)下不是root文件夹就是docs文件夹，所以得把打包目录名称改为docs
 * 部署到github Pages时，直接修改base配置会影响相关路径的引用，所以可以在打包之后修改index.html里面文件的引用路径(加上仓库绝对路径/react-three-fiber-demo/)
+
+## 原子化
+
+* npx tailwindcss init只生成tailwind.config.js
+* npx tailwindcss init -p 生成tailwind.config.js和postcss.config.js
+* 全局引入有bug,tailwind.css文件中包含了那三个文件，但是引入不生效,只能单独引入
+* p-2,m-2等这些数字相关的像素是以rem为基准，即根元素设置的字体大小(默认16px)，所以可以在配置文件里面进行更改
+
+## Docker部署
+* docker build ./ -t 包名, 打包镜像
+* docker rmi 镜像名, 删除镜像
+* docker container ls 查看运行的容器
+* docker container create -p 8090:80 镜像名称  //使用镜像创建一个容器,让真实端口8090和容器80端口对应
+* docker container start 容器id 运行某个容器 
+* stop/pause/remove 容器id 容器停止/暂停/移除
+

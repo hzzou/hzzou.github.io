@@ -19,12 +19,8 @@ const ChinaMap:React.FC = () => {
 		[pos, setPos] = useState({x:0, y:0}),
 		mapRef = useRef();
 
-	//离开时名字置空
-	const handleCancel = () => {
-		setProvince("");
-	};
-
 	useEffect(() => {
+		// 接收事件并触发
 		emitter.on("handleShow", (data: any) => {
 			setProvince(data.object.name);
 			setPos({x: data.offsetX, y: data.offsetY});
@@ -48,14 +44,21 @@ const ChinaMap:React.FC = () => {
 
 
 	return (
-		<div id={styles.map}>
+		<div id={styles.map} className={"bg-gradient-to-b from-gray-500 to-slate-100"}>
 			<div id={styles.tooltip} style={{left: pos.x, top: pos.y}}>{provinceName}</div>
 			<Canvas>
 				<PerspectiveCamera
 					fov={60} near={1} far={100}
 					aspect={window.innerWidth/window.innerHeight}
 					position={[0, 0, 100]} />
-				<OrbitControls minDistance={1} maxDistance={10} />
+				<OrbitControls
+					minDistance={1}
+					maxDistance={10}
+					minPolarAngle={Math.PI/4}
+					maxPolarAngle={Math.PI/2}
+					minAzimuthAngle={-Math.PI/4}
+					maxAzimuthAngle={Math.PI/4}
+				/>
 				<ambientLight intensity={1} args={["#dedede"]} />
 				{/*<axesHelper args={[200]} />*/}
 
