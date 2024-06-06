@@ -32,4 +32,5 @@
 * docker container create -p 8090:80 镜像名称  //使用镜像创建一个容器,让真实端口8090和容器80端口对应
 * docker container start 容器id 运行某个容器 
 * stop/pause/remove 容器id 容器停止/暂停/移除
+* docker exec -it 容器id bash 进入容器的系统
 

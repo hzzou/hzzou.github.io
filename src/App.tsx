@@ -15,10 +15,10 @@ const  App: React.FC = () =>     {
 			nav("/calendar");
 		}
     else{
-      console.log("locate:",location.pathname);
       nav(location.pathname);
     }
 	}, []);
+
 	return(
 		<HoxRoot>
 			<Outlet></Outlet>
