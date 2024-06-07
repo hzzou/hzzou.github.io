@@ -29,8 +29,10 @@
 * docker build ./ -t 包名, 打包镜像
 * docker rmi 镜像名, 删除镜像
 * docker container ls 查看运行的容器
-* docker container create -p 8090:80 镜像名称  //使用镜像创建一个容器,让真实端口8090和容器80端口对应
+* docker container ps -a/docker ps -a 列出正在运行的和已停止的容器
+* docker container create -p 8090:80 镜像名称  //使用镜像创建一个容器,让真实端口8090和容器80端口对应(容器的端口取决于你项目里写的nginx.conf配置文件)
 * docker container start 容器id 运行某个容器 
 * stop/pause/remove 容器id 容器停止/暂停/移除
 * docker exec -it 容器id bash 进入容器的系统
+* 若本地部署测试可以，docker部署同样的代码刷新还是404，有可能是nginx配置对相同的端口写了两份配置，可查看所有nginx.conf配置是否对一个端口写了两份配置
 

@@ -14,9 +14,6 @@ const  App: React.FC = () =>     {
 			// console.log("locate:",location.pathname);
 			nav("/calendar");
 		}
-    else{
-      nav(location.pathname);
-    }
 	}, []);
 
 	return(
