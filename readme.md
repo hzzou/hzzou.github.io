@@ -14,7 +14,6 @@
 * 需要建立仓库名为username.github.io (第一段必须是用户名，否则会虽然会获取到资源，页面仍旧404)
 * 静态页面只能有一个页面，所以路由是不起作用的
 * vite获取环境变量还需要vite中自带loadEnv支持，defineConfig由对象变为函数
-* Failed to load module script,是文件路径不对
 * 因为gitpages的静态部署文件夹是某分支(比如master分支)下不是root文件夹就是docs文件夹，所以得把打包目录名称改为docs
 * 部署到github Pages时，直接修改base配置会影响相关路径的引用，所以可以在打包之后修改index.html里面文件的引用路径(加上仓库绝对路径/react-three-fiber-demo/)
 
@@ -35,4 +34,5 @@
 * stop/pause/remove 容器id 容器停止/暂停/移除
 * docker exec -it 容器id bash 进入容器的系统
 * 若本地部署测试可以，docker部署同样的代码刷新还是404，有可能是nginx配置对相同的端口写了两份配置，可查看所有nginx.conf配置是否对一个端口写了两份配置
+* 若要在容器中安装相关工具，比如vim, 先执行apt-get update, 再执行apt-get install vim
 

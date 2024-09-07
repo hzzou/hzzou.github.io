@@ -6,10 +6,10 @@ import router from "./router";
 import "antd/es/style";
 
 
-ReactDOM.createRoot(document.getElementById("root") as HTMLElement).render(
-	<React.StrictMode>
+ReactDOM.createRoot(document.getElementById("root")!).render(
+	//<React.StrictMode>
 		<Suspense>
-			<RouterProvider router={router} fallbackElement={"loading..."}></RouterProvider>
+      <RouterProvider router={router} fallbackElement={"loading..."}></RouterProvider>
 		</Suspense>
-	</React.StrictMode>,
+	//</React.StrictMode>,
 );
