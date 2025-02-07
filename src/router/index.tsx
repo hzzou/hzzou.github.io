@@ -22,7 +22,6 @@ const App = lazy(() => import("@/App")),
   CustForm = lazy(()=>import("@/views/form")),
   Live = lazy(()=>import("@/views/live")),
 	CustIframe = lazy(()=>import("@/views/iframe")),
-	Wasm = lazy(()=>import("@/views/wasm")),
   CustCalendar = lazy(()=>import("@/views/calendar"));
 
 const router = createBrowserRouter([
@@ -89,10 +88,6 @@ const router = createBrowserRouter([
       {
         path: "/calendar",
         element: <CustCalendar />
-      },
-      {
-        path: "/wasm",
-        element: <Wasm />
       }
 		]
 	}

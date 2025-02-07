@@ -5,7 +5,6 @@ import {Button} from "antd";
 import style from "./index.module.scss";
 import * as superagent from "superagent";
 import axios from "axios";
-import {greet} from "wasm-game";
 export const HomeContext = createContext(null);
 //import {Button, Icon} from "parcel_lib";
 const Component = () =>{
@@ -19,7 +18,7 @@ const Component = () =>{
       end: 1
     };
 
-    Object.entries(params).map(([key, value]) => url.searchParams.append(key, value));
+    Object.entries(params).map(([key, value]) => url.searchParams.append(key, String(value)));
     console.log(url)
     console.log(url.toString())
 
@@ -49,7 +48,7 @@ const Component = () =>{
       end: 1
     };
 
-    Object.entries(params).map(([key, value]) => url.searchParams.append(key, value));
+    Object.entries(params).map(([key, value]) => url.searchParams.append(key, String(value)));
     console.log(url)
     console.log(url.toString());
 
@@ -75,7 +74,7 @@ const Component = () =>{
       end: 1
     };
 
-    Object.entries(params).map(([key, value]) => url.searchParams.append(key, value));
+    Object.entries(params).map(([key, value]) => url.searchParams.append(key, String(value)));
     console.log(url)
     console.log(url.toString());
 
@@ -109,10 +108,6 @@ const Component = () =>{
     // getQues();
 
     // getQuest();
-
-    greet("邹兴鸿");
-
-
 	},[]);
 
 	useEffect(()=>{
