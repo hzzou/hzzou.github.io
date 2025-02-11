@@ -11,9 +11,8 @@
 * /calendar 是使用自己封装的hzlzh-react-ui组件库中的日历组件
 
 ### 静态部署配置
-
-* username.github.io/react-three/ 是react-three这个仓库在username这个个人私域下的静态页面地址
 * 静态页面只能有一个页面，所以路由是不起作用的
+* 纯静态，没有其它文档脚手架参与，则需要建立仓库名为username.github.io (第一段必须是用户名，否则虽然能获取到资源，但页面仍旧404)
 * vite获取环境变量还需要vite中自带loadEnv支持，defineConfig由对象变为函数
 * 因为gitpages的静态部署文件夹是某分支(比如master分支)下不是root文件夹就是docs文件夹，所以得把打包目录名称改为docs
 * 部署到github Pages时，可在.env.production中配置仓库名称(如：VITE_BASE_URL = /react-three-fiber)，以便在vite.config.ts中修改base配置

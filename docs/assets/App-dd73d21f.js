@@ -1,0 +1,1 @@
+import{u as o,a as e,b as r,r as n,j as a,O as u}from"./index-e86d0381.js";import{H as c}from"./hox-root-df799f84.js";const x=()=>{const t=o(),s=e();return r(),n.useEffect(()=>{s.pathname==="/"&&t("/calendar")},[]),a.jsx(c,{children:a.jsx(u,{})})};export{x as default};
