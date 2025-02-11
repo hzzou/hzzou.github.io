@@ -1,0 +1,1 @@
+import{u as o,a as e,b as r,r as n,j as a,O as u}from"./index-189c03b4.js";import{H as i}from"./hox-root-7a58eb18.js";const m=()=>{const s=o(),t=e();return r(),n.useEffect(()=>{t.pathname==="/"&&s("/wasm")},[]),a.jsx(i,{children:a.jsx(u,{})})};export{m as default};
