@@ -11,7 +11,7 @@ const  App: React.FC = () =>     {
 	// 依赖空数组，由于依赖为空，不会变化，只执行一次
 	useEffect(() => {
 		if(location.pathname === "/"){
-			nav("/wasm");
+			nav("/calendar");
 		}
 	}, []);
 
